@@ -8,7 +8,7 @@ const navigate = useNavigate()
 const location = useLocation()
 
 const pathMatchRoute = (route) => {
-  if(route == location.pathname) {
+  if(route === location.pathname) {
     return true
   }
 }
