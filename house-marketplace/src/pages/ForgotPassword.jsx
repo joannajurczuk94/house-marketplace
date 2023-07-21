@@ -32,6 +32,11 @@ function ForgotPassword() {
           <Link className="forgotPasswordLink" to="/sign-in">
             Sign In
           </Link>
+<div className="signInBar">
+  <div className="signInText">Send Reset Link</div>
+  <button className="signInButton"></button>
+</div>
+
         </form>
       </main>
     </div>
