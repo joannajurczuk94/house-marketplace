@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
-import { reactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
+import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ function ForgotPassword() {
 <div className="signInBar">
   <div className="signInText">Send Reset Link</div>
   <button className="signInButton">
-    {/* <ArrowRightIcon fill="#ffffff" width="34px" height="34px"/> */}
+    <ArrowRightIcon fill="#ffffff" width="34px" height="34px"/>
   </button>
 </div>
 
