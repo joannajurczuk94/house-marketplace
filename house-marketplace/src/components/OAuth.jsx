@@ -27,9 +27,12 @@ function OAuth() {
           email: user.email,
           timestamp: serverTimestamp()
         })
-
+navigate("/")
       }
-    } catch (error) {}
+    } catch (error) {
+toast.error("Could not authorize with Google")
+
+    }
   };
 
   return (
