@@ -1,9 +1,9 @@
-import { useState, useEffect, userRef } from "react";
+import { useState } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useNavigate, Link } from "react-router-dom";
-import {toast} from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Profile() {
   const auth = getAuth();
@@ -24,30 +24,30 @@ function Profile() {
 
   const onSubmit = async () => {
     try {
-      if(auth.currentUser.displayName !== name) {
+      if (auth.currentUser.displayName !== name) {
         // Update display name in fb
         await updateProfile(auth.currentUser, {
-          displayName: name
-        })
+          displayName: name,
+        });
 
         //Update in firestore
-        const userRef = doc(db, 'users', auth.currentUser.uid)
+        const userRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(userRef, {
-          name
-        })
+          name,
+        });
       }
     } catch (error) {
-      console.log(error)
-toast.error('Could not update profile details')
+      console.log(error);
+      toast.error("Could not update profile details");
     }
   };
 
-const onChange = (e) => {
-  setFormData((prevState) => ({
-    ...prevState,
-    [e.target.id]: e.target.value, 
-  }))
-}
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   return (
     <div className="profile">
@@ -91,8 +91,6 @@ const onChange = (e) => {
               value={email}
               onChange={onChange}
             />
-
-
           </form>
         </div>
       </main>
