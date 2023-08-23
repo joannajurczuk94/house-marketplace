@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { ReactComponent as DeleteIcon } from "../assets/svg/DeleteIcon.svg";
+import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg";
 import bedIcon from "../assets/svg/bedIcon.svg";
 import bathtubIcon from "../assets/svg/bathtubIcon.svg";
 
-function ListingItem(listing, id) {
+function ListingItem({ listing, id }) {
   return (
     <div>
       <li className="categoryListing">
@@ -16,6 +16,12 @@ function ListingItem(listing, id) {
             alt={listing.name}
             className="categoryListingImg"
           />
+          <div className="categoryListingDetails">
+            <p className="categoryListingLocation">
+              {listing.location}
+              <p className="categoryListingName">{listing.name}</p>
+            </p>
+          </div>
         </Link>
       </li>
     </div>
