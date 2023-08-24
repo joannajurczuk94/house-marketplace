@@ -21,6 +21,9 @@ function ListingItem({ listing, id }) {
               {listing.location}
               <p className="categoryListingName">{listing.name}</p>
             </p>
+<p className="categoryListingPrice">
+  {listing.offer ? listing.discountedPrice : listing.regularPrice}
+</p>
           </div>
         </Link>
       </li>
