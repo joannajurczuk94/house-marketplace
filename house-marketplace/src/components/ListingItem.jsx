@@ -21,9 +21,15 @@ function ListingItem({ listing, id }) {
               {listing.location}
               <p className="categoryListingName">{listing.name}</p>
             </p>
-<p className="categoryListingPrice">
-  {listing.offer ? listing.discountedPrice : listing.regularPrice}
-</p>
+            <p className="categoryListingPrice">
+              {listing.offer
+                ? listing.discountedPrice
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                : listing.regularPrice
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </p>
           </div>
         </Link>
       </li>
